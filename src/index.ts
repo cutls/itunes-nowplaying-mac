@@ -19,13 +19,21 @@ export async function getRawData(opts: JXAOpts = {}) {
     }
 }
 
+export async function getThumbnailBuffer(databaseID: number) {
+    const { stdout } = await promisifyExecFile(join(__dirname, "..", "jxa", "get-artwork"), [databaseID.toString()], {
+        maxBuffer: 64 * 1024 * 1024,
+        encoding: "buffer"
+    })
+    return stdout as Buffer
+}
+
 async function getData() {
     const res = await getRawData({withoutArtworks:true})
     if (res == null) {
         return null
     }
     return {
-        id: res.id as number,
+        databaseID: res.databaseID as number,
         name: res.name as string,
         duration: res.duration as number,
         artist: res.artist as string,
@@ -50,12 +58,13 @@ async function getData() {
         loved: res.loved as boolean,
         disliked: res.disliked as boolean,
         state: res.state as "playing" | "paused",
-        existsArtwork: res.existsArtwork as boolean,
+        location: typeof res.location === "string" ? res.location : undefined,
     }
 }
 
 Object.defineProperty(getData, "default", {value: getData})
 module.exports = getData
 module.exports.getRawData = getRawData
+module.exports.getThumbnailBuffer = getThumbnailBuffer
 
 export default getData

@@ -14,9 +14,14 @@ function run(argv) {
     }
     var existsArtwork = track.artworks.length > 0
     track = track.properties()
-    Object.keys(track).filter(function (name) {
-        if (name.startsWith("purchase") || name.endsWith("ID")) {
+    Object.keys(track).forEach(function (name) {
+        if (name.startsWith("purchase") || (name.endsWith("ID") && name != "databaseID")) {
             track[name] = undefined
+        }
+        try {
+            if (name === "location") track[name] = track[name].toString()
+        } catch(e) {
+            // failed to extract location...
         }
     })
     track.state = state

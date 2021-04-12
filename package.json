@@ -1,14 +1,14 @@
 {
   "name": "itunes-nowplaying-mac",
-  "version": "0.2.3",
+  "version": "0.4.0",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "npm run build",
-    "build": "npm run build:ts && npm run build:as",
+    "prepare": "npm run build:ts",
+    "postinstall": "npm run build:native",
     "build:ts": "tsc",
-    "build:as": "osacompile -o dist/itunes.scpt src/itunes.applescript && cp src/itunes.js dist/itunes.js"
+    "build:native": "make"
   },
   "typings": "dist/index.d.ts",
   "os": [
