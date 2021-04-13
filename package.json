@@ -11,8 +11,11 @@
     "build:native": "make"
   },
   "typings": "dist/index.d.ts",
+  "os": [
+    "darwin"
+  ],
   "engines": {
-    "node": ">= 14.6.1"
+    "node": ">= 7.6.0"
   },
   "repository": {
     "type": "git",
@@ -25,7 +28,7 @@
   },
   "homepage": "https://github.com/rinsuki/itunes-nowplaying-mac#readme",
   "devDependencies": {
-    "@types/node": "^14.14.32",
+    "@types/node": "^9.3.0",
     "typescript": "^2.6.2"
   }
 }
