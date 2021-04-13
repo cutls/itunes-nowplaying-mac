@@ -11,7 +11,7 @@
   },
   "typings": "dist/index.d.ts",
   "engines": {
-    "node": ">= 7.6.0"
+    "node": ">= 14.6.1"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/rinsuki/itunes-nowplaying-mac#readme",
   "devDependencies": {
-    "@types/node": "^9.3.0",
+    "@types/node": "^14.14.32",
     "typescript": "^2.6.2"
   }
 }
