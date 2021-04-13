@@ -10,9 +10,6 @@
     "build:native": "node dist/build.js"
   },
   "typings": "dist/index.d.ts",
-  "os": [
-    "darwin"
-  ],
   "engines": {
     "node": ">= 7.6.0"
   },
