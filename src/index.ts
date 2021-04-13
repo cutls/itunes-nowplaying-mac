@@ -3,13 +3,7 @@ import { execFile } from "child_process"
 import { join } from "path"
 const promisifyExecFile = promisify(execFile)
 
-export interface JXAOpts {
-    withoutArtworks?: boolean;
-}
-export async function getRawData(opts: JXAOpts = {}) {
-    let cmdArgs = opts.withoutArtworks ? [
-        "-without-artworks"
-    ] : []
+export async function getRawData() {
     try {
         const { stdout } = await promisifyExecFile(join(__dirname, "..", "jxa", "nowplaying-info.js"));
         let res = JSON.parse(stdout.toString())
@@ -28,7 +22,7 @@ export async function getThumbnailBuffer(databaseID: number) {
 }
 
 async function getData() {
-    const res = await getRawData({withoutArtworks:true})
+    const res = await getRawData()
     if (res == null) {
         return null
     }
