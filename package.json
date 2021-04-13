@@ -8,12 +8,9 @@
     "prepare": "npm run build:ts",
     "postinstall": "npm run build:native",
     "build:ts": "tsc",
-    "build:native": "make"
+    "build:native": "node dist/build.js"
   },
   "typings": "dist/index.d.ts",
-  "os": [
-    "darwin"
-  ],
   "engines": {
     "node": ">= 7.6.0"
   },

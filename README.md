@@ -1,5 +1,9 @@
 # itunes-nowplaying-mac
 
+## isForked:
+
+For TheDesk or other cross-platform app, it should be installable on any platform. I know I can use `optionalDependencies` in package.json, but it is poor at managing packaging with a lock file.
+
 ## Tested:
 
 - macOS Catalina 10.15.6 (19G2021) + Music.app (1.0.6.10)
