@@ -3,3 +3,4 @@ dist
 src/Music.h
 jxa/
 !jxa/*.js
+*.tgz
